@@ -11,8 +11,8 @@ https://furima-35860.herokuapp.com/
 
 | Column             | Type    | Options       |
 | ------------------ | ------- | ------------- |
-| nickname           | string  | unique: false |
-| email              | string  | null: false   |
+| nickname           | string  | null: false   |
+| email              | string  | unique: false |
 | encrypted_password | string  | null: false   |
 | first_name         | string  | null: false   |
 | last_name          | string  | null: false   |
@@ -28,12 +28,12 @@ https://furima-35860.herokuapp.com/
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| p-name             | string     | null: false                    |
+| p_name             | string     | null: false                    |
 | description        | text       | null: false                    |
 | category_id           | integer    | null: false                    |
 | status_id             | integer    | null: false                    |
 | obligation_id         | integer    | null: false                    |
-| area_id               | integer    | null: false                    |
+| prefecture_id               | integer    | null: false                    |
 | date_id               | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
@@ -56,7 +56,7 @@ https://furima-35860.herokuapp.com/
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| postal_code_id    | string     | null: false                    |
+| postal_code    | string     | null: false                    |
 | prefecture_id     | integer    | null: false                    |
 | municipality   | string     | null: false                    |
 | address        | string     | null: false                    |
