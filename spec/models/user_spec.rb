@@ -42,12 +42,12 @@ describe User, type: :model do
         expect(@user.errors.full_messages).to include("Password can't be blank")
       end
       it "passwordが5文字以下であれば登録できない" do
-        @user.password = "00000"
+        @user.password = "00aaa"
         @user.valid?
         expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
       end
       it "passwordが存在してもpassword_confirmationが空では登録できない" do
-        @user.password = "000000"
+        @user.password = "000aaa"
         @user.password_confirmation = ""
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
