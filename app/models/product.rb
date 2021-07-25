@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   with_options presence: true do
     validates :p_name, :description, :image
     
-    with_options numericality: { other_than: 1 } do
+    with_options numericality: { other_than: 1 ,message: "can be blank"} do
       validates :category_id, :status_id, :oligation_id, :prefecture_id, :date_id
     end
 
