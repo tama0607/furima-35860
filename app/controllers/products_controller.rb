@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
+    @products = Product.all.order(created_at: "DESC")
   end
 
   def new
@@ -9,7 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(item_params)
+    @product = Product.new(product_params)
       if @product.valid?
         @product.save
         redirect_to root_path
@@ -19,6 +20,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:p_name, :description, :category_id, :status_id, :oligation_id, :prefecture_id, :date_id, :price, :image).merge(user_id: current_user.id)
+    params.require(:product).permit(:p_name, :description, :category_id, :status_id, :obligation_id, :prefecture_id, :day_id, :price, :image).merge(user_id: current_user.id)
     end
 end
