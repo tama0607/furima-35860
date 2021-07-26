@@ -34,7 +34,7 @@ https://furima-35860.herokuapp.com/
 | status_id             | integer    | null: false                    |
 | obligation_id         | integer    | null: false                    |
 | prefecture_id               | integer    | null: false                    |
-| date_id               | integer    | null: false                    |
+| day_id               | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
