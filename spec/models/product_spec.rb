@@ -69,6 +69,11 @@ describe Product, type: :model do
         @product.valid?
         expect(@product.errors.full_messages).to include("Price is not a number")
       end
+      it 'priceが半角英語では登録できない' do
+        @product.price = 'aaaa'
+        @product.valid?
+        expect(@product.errors.full_messages).to include("Price is not a number")
+      end
       it 'priceが300より少ないと登録できない' do
         @product.price = 50
         @product.valid?
