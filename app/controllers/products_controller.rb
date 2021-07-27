@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :product_set, only: [edit, :update]
+  before_action :set_products, only: [:edit, :update]
 
 
 
@@ -23,24 +23,26 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    unless user_signed_in? && current_user.id == @item.user_id
+    unless user_signed_in? && current_user.id == @product.user_id
       redirect_to root_path
     end
   end
 
   def update
-    if @product.update(item_params)
-      redirect_to product_path(@product.id)
+    if @product.update(product_params)
+      redirect_to root_path(@product)
     else
       render :edit
     end
   end
 
+  private
+
   def product_params
     params.require(:product).permit(:p_name, :description, :category_id, :status_id, :obligation_id, :prefecture_id, :day_id, :price, :image).merge(user_id: current_user.id)
   end
 
-  def product_set
+  def set_products
     @product = Product.find(params[:id])
   end
 end
