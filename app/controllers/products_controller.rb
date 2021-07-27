@@ -26,9 +26,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    unless set_user
-      redirect_to root_path
-    end
+
   end
 
   def update
@@ -39,11 +37,9 @@ class ProductsController < ApplicationController
     end
   end
 
-  def destroy
-    if set_user
+  def destroy 
       @product.destroy
       redirect_to root_path
-    end
   end
 
   private
@@ -57,7 +53,9 @@ class ProductsController < ApplicationController
   end
 
   def set_user
-    current_user.id == @product.user_id
+    unless current_user.id == @product.user_id
+      redirect_to root_path
+    end
   end
 
 end
