@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index,:update,:edit]
   before_action :set_products, only: [:edit, :update]
 
 
@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    unless user_signed_in? && current_user.id == @product.user_id
+    unless current_user.id == @product.user_id
       redirect_to root_path
     end
   end
