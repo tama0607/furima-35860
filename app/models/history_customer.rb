@@ -1,0 +1,3 @@
+class HistoryCustomer
+
+end
