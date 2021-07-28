@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="OgADWDcbjV7thBS_maku" name="ページ1">
-        <mxGraphModel dx="332" dy="674" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="277" dy="231" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -172,7 +172,7 @@
                 <mxCell id="92" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" parent="91" vertex="1">
                     <mxGeometry width="30" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="93" value="date_id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="91" vertex="1">
+                <mxCell id="93" value="day_id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="91" vertex="1">
                     <mxGeometry x="30" width="170" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="94" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="29" vertex="1">
@@ -259,13 +259,13 @@
                 <mxCell id="128" value="phone_number" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="126" vertex="1">
                     <mxGeometry x="30" width="170" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="178" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="42">
+                <mxCell id="178" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="42" vertex="1">
                     <mxGeometry y="240" width="200" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="179" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" vertex="1" parent="178">
+                <mxCell id="179" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" parent="178" vertex="1">
                     <mxGeometry width="30" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="180" value="history" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="178">
+                <mxCell id="180" value="history" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="178" vertex="1">
                     <mxGeometry x="30" width="170" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="167" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERmany;startArrow=ERone;startFill=0;endFill=0;" parent="1" edge="1">
