@@ -5,7 +5,7 @@ class HistoryCustomer
   with_options presence: true do
     validates :token, :municipality, :address
     validates :prefecture_id, numericality: { other_than: 1 }
-    validates :phone_number, format: { with: /\A\d{12}\z/ }
+    validates :phone_number, format: { with: /\A\d[0-9]{9,10}\z/ }
     validates :user_id
     validates :product_id
 

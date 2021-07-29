@@ -42,7 +42,7 @@ RSpec.describe HistoryCustomer, type: :model do
       it 'prefecture_idが１だと購入できない' do
         @history_customer.prefecture_id = 1
         @history_customer.valid?
-        expect(@history_customer.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@history_customer.errors.full_messages).to include("Prefecture must be other than 1")
       end
       it 'municipalityが空だと購入できない' do
         @history_customer.municipality = ""
@@ -67,12 +67,12 @@ RSpec.describe HistoryCustomer, type: :model do
       it 'user_idが空だと購入できない' do
         @history_customer.user_id = ""
         @history_customer.valid?
-        expect(@history_customer.errors.full_messages).to include("User number can't be blank", "Phone number is invalid")
+        expect(@history_customer.errors.full_messages).to include("User can't be blank")
       end
       it 'product_idrが空だと購入できない' do
         @history_customer.product_id = ""
         @history_customer.valid?
-        expect(@history_customer.errors.full_messages).to include("Product number can't be blank", "Phone number is invalid")
+        expect(@history_customer.errors.full_messages).to include("Product can't be blank")
       end
   end
 end
