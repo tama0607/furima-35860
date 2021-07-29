@@ -1,13 +1,10 @@
 class HistoriesController < ApplicationController
   before_action :authenticate_user!,only: [:index,:create]
   before_action :set_products, only: [:index, :create]
+  before_action :set_user,only:[:index,:create]
 
   def index
-    if current_user.id != @product.user_id && @product.history == nil
-      @history_customer = HistoryCustomer.new
-    else
-      redirect_to root_path
-    end
+    @history_customer = HistoryCustomer.new
   end
 
   def create
@@ -29,6 +26,14 @@ class HistoriesController < ApplicationController
 
   def order_params
     params.require(:history_customer).permit(:postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number).merge(token: params[:token],product_id: params[:product_id], user_id: current_user.id )
+  end
+
+  def set_user
+    if current_user.id != @product.user_id && @product.history == nil
+      
+    else
+      redirect_to root_path
+    end
   end
 
   def pay_product

@@ -5,15 +5,19 @@ class HistoryCustomer
   with_options presence: true do
     validates :token, :municipality, :address
     validates :prefecture_id, numericality: { other_than: 1 }
-    validates :phone_number, format: { with: /\A\d{11}\z/ }
-    
+    validates :phone_number, format: { with: /\A\d{12}\z/ }
+    validates :user_id
+    validates :product_id
+
+
+
     with_options format: { with: /\A\d{3}[-]\d{4}\z/ } do
       validates :postal_code, length: { is: 8 } 
     end
   end
 
     def save
-      Customer.create(postal_code: postal_code, prefecture_id: prefecture_id, municipality: municipality, address: address, building_name: building_name, phone_number: phone_number)
+      Customer.create(postal_code: postal_code, prefecture_id: prefecture_id, municipality: municipality, address: address, building_name: building_name, phone_number: phone_number,user_id: user_id, product_id: product_id)
       History.create(user_id: user_id, product_id: product_id)
     end
 end

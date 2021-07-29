@@ -29,8 +29,18 @@ RSpec.describe HistoryCustomer, type: :model do
         @history_customer.valid?
         expect(@history_customer.errors.full_messages).to include("Postal code is invalid", "Postal code is the wrong length (should be 8 characters)")
       end
+      it '郵便番号二文字が含まれていると購入できない' do
+        @history_customer.postal_code = "123-45あ"
+        @history_customer.valid?
+        expect(@history_customer.errors.full_messages).to include("Postal code is invalid")
+      end
       it 'prefecture_idが空だと購入できない' do
         @history_customer.prefecture_id = nil
+        @history_customer.valid?
+        expect(@history_customer.errors.full_messages).to include("Prefecture can't be blank")
+      end
+      it 'prefecture_idが１だと購入できない' do
+        @history_customer.prefecture_id = 1
         @history_customer.valid?
         expect(@history_customer.errors.full_messages).to include("Prefecture can't be blank")
       end
@@ -49,10 +59,20 @@ RSpec.describe HistoryCustomer, type: :model do
         @history_customer.valid?
         expect(@history_customer.errors.full_messages).to include("Phone number can't be blank", "Phone number is invalid")
       end
-      it 'phone_numberが11桁でなければ購入できない' do
-        @history_customer.phone_number = "080123456789"
+      it 'phone_numberが英数字混合の場合は購入できない' do
+        @history_customer.phone_number = "080123456ab"
         @history_customer.valid?
         expect(@history_customer.errors.full_messages).to include("Phone number is invalid")
+      end
+      it 'user_idが空だと購入できない' do
+        @history_customer.user_id = ""
+        @history_customer.valid?
+        expect(@history_customer.errors.full_messages).to include("User number can't be blank", "Phone number is invalid")
+      end
+      it 'product_idrが空だと購入できない' do
+        @history_customer.product_id = ""
+        @history_customer.valid?
+        expect(@history_customer.errors.full_messages).to include("Product number can't be blank", "Phone number is invalid")
       end
   end
 end
