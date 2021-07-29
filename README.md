@@ -46,7 +46,7 @@ https://furima-35860.herokuapp.com/
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | user         | references | null: false, foreign_key: true |
-| item         | references | null: false, foreign_key: true |
+| product         | references | null: false, foreign_key: true |
 
 - belongs_to :user
 - belongs_to :product

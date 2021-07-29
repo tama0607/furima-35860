@@ -129,21 +129,19 @@
     <ul class='item-lists'>
       <% unless @products.empty? %>
         <% @products.each do |product| %>
-        <li class='list'>
-          <%= link_to product_path(product.id) do %>
-          <div class='item-img-content'>
-            <%= image_tag product.image, class: "item-img" %>
-            
-          <%# 商品が売れていればsold outを表示しましょう %>
-          <div class='sold-out'>
-            <span>Sold Out!!</span>
-          </div>
-          <%# //商品が売れていればsold outを表示しましょう %>
-        </div>
-
+          <li class='list'>
+            <%= link_to product_path(product.id) do %>
+            <div class='item-img-content'>
+              <%= image_tag product.image, class: "item-img" %>
+                <% if product.history != nil %>
+                  <div class='sold-out'>
+                    <span>Sold Out!!</span>
+                  </div>
+                <% end %>
+            </div>
         <div class='item-info'>
           <h3 class='item-name'>
-            <%= product.description %>
+            <%= product.p_name %>
           </h3>
           <div class='item-price'>
             <span><%= product.price %>円<br>(税込み)</span>
