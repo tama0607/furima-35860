@@ -1,20 +1,20 @@
 class HistoriesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!,only: [:index,:create]
   before_action :set_products, only: [:index, :create]
 
   def index
-    if urrent_user.id != @product.user_id && @product.history == nil
-      @product_history = ProductHistory.new
+    if current_user.id != @product.user_id && @product.history == nil
+      @history_customer = HistoryCustomer.new
     else
       redirect_to root_path
     end
   end
 
   def create
-    @product_history = ProductHistory.new(order_params)
-    if @product_history.valid?
-      pay_item
-      @product_history.save
+    @history_customer = HistoryCustomer.new(order_params)
+    if @history_customer.valid?
+      pay_product
+      @history_customer.save
       return redirect_to root_path
     else
       render action: :index
@@ -24,11 +24,11 @@ class HistoriesController < ApplicationController
   private
 
   def set_products
-    @product = Product.find(params[:item_id])
+    @product = Product.find(params[:product_id])
   end
 
   def order_params
-    params.require(:product_history).permit(:postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number).merge(token: params[:token], history_id: params[:history_id], user_id: current_user.id )
+    params.require(:history_customer).permit(:postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number).merge(token: params[:token],product_id: params[:product_id], user_id: current_user.id )
   end
 
   def pay_product
