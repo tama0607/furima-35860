@@ -3,12 +3,19 @@ require 'rails_helper'
 RSpec.describe HistoryCustomer, type: :model do
   describe '購入者情報の保存' do
     before do
-      @history_customer = FactoryBot.build(:history_customer)
+      user = FactoryBot.create(:user)
+      product = FactoryBot.create(:product)
+      @history_customer = FactoryBot.build(:history_customer, user_id: user.id, product_id: product.id)
+      sleep 0.1
     end
 
+    context '購入ができる時' do
       it '全ての項目が入力されていれば購入ができる' do
         expect(@history_customer).to be_valid
       end
+    end
+
+    context '購入ができない時' do
       it 'token(クレジットカード情報)が空だと購入ができない' do
         @history_customer.token = nil
         @history_customer.valid?
@@ -74,5 +81,6 @@ RSpec.describe HistoryCustomer, type: :model do
         @history_customer.valid?
         expect(@history_customer.errors.full_messages).to include("Product can't be blank")
       end
+    end
   end
 end
