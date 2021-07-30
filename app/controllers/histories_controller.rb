@@ -1,7 +1,7 @@
 class HistoriesController < ApplicationController
   before_action :authenticate_user!,only: [:index,:create]
   before_action :set_products, only: [:index, :create]
-  before_action :set_user,only:[:index,:create]
+  before_action :set_user,only:[:create]
 
   def index
     @history_customer = HistoryCustomer.new
