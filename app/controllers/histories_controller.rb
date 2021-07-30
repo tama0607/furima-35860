@@ -1,7 +1,7 @@
 class HistoriesController < ApplicationController
-  before_action :authenticate_user!,only: [:index,:create]
+  before_action :authenticate_user!, only: [:index, :create]
   before_action :set_products, only: [:index, :create]
-  before_action :set_user,only:[:create]
+  before_action :set_user,only:[:index,:create]
 
   def index
     @history_customer = HistoryCustomer.new
@@ -29,7 +29,7 @@ class HistoriesController < ApplicationController
   end
 
   def set_user
-    unless current_user.id == @product.user_id && @product.history != nil
+    unless current_user.id != @product.user_id || @product.history != nil
       redirect_to root_path
     end
   end

@@ -17,7 +17,7 @@ class HistoryCustomer
   end
 
     def save
-      Customer.create(postal_code: postal_code, prefecture_id: prefecture_id, municipality: municipality, address: address, building_name: building_name, phone_number: phone_number,user_id: user_id, product_id: product_id)
+      Customer.create(postal_code: postal_code, prefecture_id: prefecture_id, municipality: municipality, address: address, building_name: building_name, phone_number: phone_number)
       History.create(user_id: user_id, product_id: product_id)
     end
 end
