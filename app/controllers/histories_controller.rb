@@ -29,7 +29,7 @@ class HistoriesController < ApplicationController
   end
 
   def set_user
-    unless current_user.id == @product.user_id && @product.history == nil
+    unless current_user.id != @product.user_id && @product.history == nil
       redirect_to root_path
     end
   end
