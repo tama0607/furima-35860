@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
   before_action :set_products, only: [:show,:edit, :update,:destroy]
-  before_action :set_user, only: [:edit,:destroy,:update,:show]
+  before_action :set_user, only: [:edit,:destroy,:update]
 
   def index
     @products = Product.all.order(created_at: "DESC")
@@ -53,7 +53,7 @@ class ProductsController < ApplicationController
   end
 
   def set_user
-    unless current_user.id == @product.user_id && @product.history == nil
+    unless current_user.id == @product.user_id && @product.history == nil 
       redirect_to root_path
     end
   end
