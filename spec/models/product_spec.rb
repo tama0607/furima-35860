@@ -31,27 +31,27 @@ describe Product, type: :model do
       it 'category_idで1が選択された場合は登録されない' do
         @product.category_id = 1
         @product.valid?
-        expect(@product.errors.full_messages).to include("Category can't be blank")
+        expect(@product.errors.full_messages).to include("カテゴリーを入力してください")
       end
       it 'status_idで1が選択された場合は登録されない' do
         @product.status_id = 1
         @product.valid?
-        expect(@product.errors.full_messages).to include("Status can't be blank")
+        expect(@product.errors.full_messages).to include("商品の状態を入力してください")
       end
       it 'obligation_idで1が選択された場合は登録されない' do
         @product.obligation_id = 1
         @product.valid?
-        expect(@product.errors.full_messages).to include("Obligation can't be blank")
+        expect(@product.errors.full_messages).to include("配送料の負担を入力してください")
       end
       it 'prefecture_idで1が選択された場合は登録されない' do
         @product.prefecture_id = 1
         @product.valid?
-        expect(@product.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@product.errors.full_messages).to include("発送元地域を入力してください")
       end
       it 'day_idで1が選択された場合は登録されない' do
         @product.day_id = 1
         @product.valid?
-        expect(@product.errors.full_messages).to include("Day can't be blank")
+        expect(@product.errors.full_messages).to include("発送までの日数を入力してください")
       end
 
       it 'priceが空では登録されない' do
@@ -87,7 +87,7 @@ describe Product, type: :model do
       it 'ユーザーが紐付いていないと出品できない' do
         @product.user = nil
         @product.valid?
-        expect(@product.errors.full_messages).to include('User must exist')
+        expect(@product.errors.full_messages).to include('ユーザーを入力してください')
       end
     end
 
