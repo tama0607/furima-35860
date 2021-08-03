@@ -13,7 +13,7 @@ class Product < ApplicationRecord
   with_options presence: true do
     validates :p_name, :description, :image
     
-    with_options numericality: { other_than: 1 ,message: "can't be blank"} do
+    with_options numericality: { other_than: 1 ,message: "を入力してください"} do
       validates :category_id, :status_id, :obligation_id, :prefecture_id, :day_id
     end
 
