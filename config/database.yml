@@ -1,33 +1,26 @@
-# MySQL. Versions 5.5.8 and up are supported.
-#
-# Install the MySQL driver
-#   gem install mysql2
-#
-# Ensure the MySQL gem is defined in your Gemfile
-#   gem 'mysql2'
-#
-# And be sure to use new-style password hashing:
-#   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
-#
 default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  socket: /tmp/mysql.sock
 
 development:
   <<: *default
   database: furima_35860_development
+  username: root
+  password:
+  socket: /tmp/mysql.sock
 
 test:
   <<: *default
   database: furima_35860_test
+  username: root
+  password:
+  socket: /tmp/mysql.sock
 
 production:
   <<: *default
-  database: furima_35860_production
-  username: furima_35860
-  password: <%= ENV['FURIMA_35860_DATABASE_PASSWORD'] %>
+  database: heroku_a78dfda05d6b281
+  username: b313c839c2b73f
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   host: <%= ENV['DATABASE_HOST'] %>
+  reconnect: true
