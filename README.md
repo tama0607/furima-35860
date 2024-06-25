@@ -5,6 +5,9 @@
 # App URL
 https://furima-35860.herokuapp.com/
 
+# App Basic認証
+admin
+2222
 
 
 ## users テーブル
