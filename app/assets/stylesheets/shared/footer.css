@@ -1,9 +1,9 @@
+@charset "UTF-8";
 /* 下部広告部分 */
 /* items/index.htmlの広告cssを所々使いまわしています。 */
-
 .ad-footer-contents {
   width: 100vw;
-  background-image: image-url("furima-footer.png");
+  background-image: url("furima-footer.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -27,7 +27,6 @@
 }
 
 /* //下部広告部分 */
-
 .footer {
   width: 100vw;
   padding: 5vh 0;
@@ -63,6 +62,6 @@
   vertical-align: bottom;
 }
 
-.footer>p {
+.footer > p {
   font-size: 14px;
-}
+}/*# sourceMappingURL=footer.css.map */

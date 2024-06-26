@@ -1,4 +1,4 @@
-module.exports = function(api) {
+module.exports = function (api) {
   var validEnv = ['development', 'test', 'production']
   var currentEnv = api.env()
   var isDevelopmentEnv = api.env('development')
@@ -8,10 +8,10 @@ module.exports = function(api) {
   if (!validEnv.includes(currentEnv)) {
     throw new Error(
       'Please specify a valid `NODE_ENV` or ' +
-        '`BABEL_ENV` environment variables. Valid values are "development", ' +
-        '"test", and "production". Instead, received: ' +
-        JSON.stringify(currentEnv) +
-        '.'
+      '`BABEL_ENV` environment variables. Valid values are "development", ' +
+      '"test", and "production". Instead, received: ' +
+      JSON.stringify(currentEnv) +
+      '.'
     )
   }
 
@@ -32,7 +32,8 @@ module.exports = function(api) {
           useBuiltIns: 'entry',
           corejs: 3,
           modules: false,
-          exclude: ['transform-typeof-symbol']
+          exclude: ['transform-typeof-symbol'],
+          loose: true  // ここを追加
         }
       ]
     ].filter(Boolean),
@@ -50,7 +51,8 @@ module.exports = function(api) {
       [
         '@babel/plugin-proposal-object-rest-spread',
         {
-          useBuiltIns: true
+          useBuiltIns: true,
+          loose: true  // ここを追加
         }
       ],
       [
@@ -58,13 +60,26 @@ module.exports = function(api) {
         {
           helpers: false,
           regenerator: true,
-          corejs: false
+          corejs: false,
+          loose: true  // ここを追加
         }
       ],
       [
         '@babel/plugin-transform-regenerator',
         {
           async: false
+        }
+      ],
+      [
+        '@babel/plugin-transform-private-methods',  // 追加
+        {
+          loose: true
+        }
+      ],
+      [
+        '@babel/plugin-transform-private-property-in-object',  // 追加
+        {
+          loose: true
         }
       ]
     ].filter(Boolean)
