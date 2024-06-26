@@ -3,7 +3,7 @@
 
 
 # App URL
-https://furima-35860.herokuapp.com/
+https://furima-35860-2cc09e7f676f.herokuapp.com/
 
 # App Basic認証
 admin
